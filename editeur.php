@@ -1,6 +1,7 @@
 <?php 
 error_reporting(E_ALL & ~E_NOTICE);
 session_start();
+require_once "Model/pdo.php";
 ?>
 
 
@@ -16,7 +17,7 @@ session_start();
           <meta name="description" content="Bootstrap" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
-          <link rel="stylesheet" type="text/css" href="style_accueil.css"/>
+          <link rel="stylesheet" type="text/css" href="style_editeur.css"/>
           <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
           <script src="bootstrap/bootstrap.min.js"></script>
