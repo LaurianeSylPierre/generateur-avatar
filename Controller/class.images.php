@@ -8,9 +8,37 @@
             $this->db = $pdo; //Objet : si le pdo change, il change partout où l'objet est utilisé
         }
 
-//On a
+//On récupère tous les fronts
         public function prez_front_creation(){
+            $front_all = "SELECT front FROM Banque_images";
+            foreach($this->db->query($front_all) as $row){?>
+                <img src="<?php print $row['front'];?>">
+            <?php
+            }
+        }
 
+        public function prez_yeux_creation(){
+            $yeux_all = "SELECT yeux FROM Banque_images";
+            foreach($this->db->query($front_all) as $row){?>
+                <img src="<?php print $row['yeux'];?>">
+            <?php
+            }
+        }
+
+        public function prez_nez_creation(){
+            $nez_all = "SELECT nez FROM Banque_images";
+            foreach($this->db->query($nez_all) as $row){?>
+                <img src="<?php print $row['nez'];?>">
+            <?php
+            }
+        }
+
+        public function prez_bouche_buste_creation(){
+            $bouche_buste_all = "SELECT bouche_buste FROM Banque_images";
+            foreach($this->db->query($bouche_buste_all) as $row){?>
+                <img src="<?php print $row['bouche_buste'];?>">
+            <?php
+            }
         }
 
 //Récupère le front pour le mettre sur l'avatar lors de la création
