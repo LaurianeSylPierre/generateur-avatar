@@ -10,33 +10,37 @@
 
 //On récupère tous les fronts
         public function prez_front_creation(){
-            $front_all = "SELECT front FROM Banque_images";
+            $front_all = "SELECT front, id_image FROM Banque_images";
             foreach($this->db->query($front_all) as $row){?>
-                <img src="<?php print $row['front'];?>">
+            <?php $id_front = $row['id_image'];
+			echo "<div id='front'><img id='".print $id_front."' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".print $row['front'];."'><br></div>"
             <?php
             }
         }
 
         public function prez_yeux_creation(){
-            $yeux_all = "SELECT yeux FROM Banque_images";
+            $yeux_all = "SELECT yeux, id_image FROM Banque_images";
             foreach($this->db->query($front_all) as $row){?>
-                <img src="<?php print $row['yeux'];?>">
+                <?php $id_yeux = $row['id_image'];
+			echo "<div id='yeux'><img id='".print $id_yeux."' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".print $row['yeux'];."'><br></div>"
             <?php
             }
         }
 
         public function prez_nez_creation(){
-            $nez_all = "SELECT nez FROM Banque_images";
+            $nez_all = "SELECT nez, id_image FROM Banque_images";
             foreach($this->db->query($nez_all) as $row){?>
-                <img src="<?php print $row['nez'];?>">
+                <?php $id_nez = $row['id_image'];
+			echo "<div id='nez'><img id='".print $id_nez."' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".print $row['nez'];."'><br></div>"
             <?php
             }
         }
 
         public function prez_bouche_buste_creation(){
-            $bouche_buste_all = "SELECT bouche_buste FROM Banque_images";
+            $bouche_buste_all = "SELECT bouche_buste, id_image FROM Banque_images";
             foreach($this->db->query($bouche_buste_all) as $row){?>
-                <img src="<?php print $row['bouche_buste'];?>">
+                <?php $id_bouche_buste = $row['id_image'];
+			echo "<div id='bouche_buste'><img id='".print $id_bouche_buste."' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".print $row['bouche_buste'];."'><br></div>"
             <?php
             }
         }
