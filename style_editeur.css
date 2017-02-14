@@ -42,6 +42,10 @@ header h1 {
 	font-weight: bold;
 }
 
+#save {
+	margin-left:12em;
+}
+
 #onglets .actif {
 	border-bottom: none;
 	font-weight: bold;
@@ -69,4 +73,6 @@ img {
 	margin-top:1em;
 }
 
-
+#fb {
+	width: 300%;
+}

@@ -60,7 +60,7 @@ require_once "Model/pdo.php";
 
       <header>
 
-        <h1>Nom du générateur</h1>
+        <h1>Zombie generator</h1>
 
       </header>
 
@@ -74,6 +74,11 @@ require_once "Model/pdo.php";
 
                 <div class="apercu">
 
+                <?php echo $images->get_front_creation($pdo); ?>
+                <?php echo $images->get_yeux_creation($pdo); ?>
+                <?php echo $images->get_nez_creation($pdo); ?>
+                <?php echo $images->get_bouche_buste_creation($pdo); ?>
+
                 </div>
 
               </div>
@@ -85,7 +90,7 @@ require_once "Model/pdo.php";
                         <li>Yeux</li>
                         <li>Nez</li>
                         <li>Bouche</li>
-                        <li>Enregistrer</li>
+                        <li id="save">Enregistrer</li>
                       </ul>
 
                 <div class="choix">
@@ -93,31 +98,46 @@ require_once "Model/pdo.php";
                       <div id="contenu">
 
                         <div class="item">
-                          <?php echo $images->prez_front_creation($pdo); ?>
+                          <?php 
+                          if (isset($_GET["selected"])){
+                            echo $images->prez_front_creation($pdo); 
+                          } ?>
                         </div>
 
                         <div class="item">
-                          <?php echo $images->prez_yeux_creation($pdo); ?>
+                          <?php 
+                          if (isset($_GET["selected"])){
+                            echo $images->prez_yeux_creation($pdo);
+                          } ?>
                         </div>
 
                         <div class="item">
-                          <?php echo $images->prez_nez_creation($pdo); ?>
+                          <?php 
+                          if (isset($_GET["selected"])){
+                            echo $images->prez_nez_creation($pdo);
+                          } ?>
                         </div>
 
                         <div class="item">
-                          <?php echo $images->prez_bouche_buste_creation($pdo); ?>
+                          <?php 
+                          if (isset($_GET["selected"])){
+                            echo $images->prez_bouche_buste_creation($pdo); 
+                            }
+                          ?>
                         </div>
 
                         <div class="item">
-                         <!--Facebook-->
-                    <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
-                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a>
-                    </div>
-                <!--Twitter-->
-                    <a class="twitter-share-button"
-                      href="https://twitter.com/intent/tweet?text=Notre%20texte%20à%20nous"
-                      data-size="large">
-                    Tweet</a>
+
+                          <!--Facebook-->
+                          <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
+                              <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a>
+                          </div>
+                          <!--Twitter-->
+                          <a class="twitter-share-button"
+                            href="https://twitter.com/intent/tweet?text=Notre%20texte%20à%20nous"
+                            data-size="large">
+                          Tweet</a>
+
                         </div>
 
                       </div>
