@@ -68,7 +68,11 @@ header h1 {
 	width: 10%;
 }
 
-img {
+img{
+	width: 80%;
+}
+
+.selecteur {
 	width: 80%;
 	margin-top:1em;
 }

@@ -74,10 +74,19 @@ require_once "Model/pdo.php";
 
                 <div class="apercu">
 
-                <?php echo $images->get_front_creation($pdo); ?>
-                <?php echo $images->get_yeux_creation($pdo); ?>
-                <?php echo $images->get_nez_creation($pdo); ?>
-                <?php echo $images->get_bouche_buste_creation($pdo); ?>
+                <?php
+                if (isset($_GET["selected"])){
+                    echo $images->get_front_creation($pdo);
+                }
+                if (isset($_GET["selected2"])){
+                    echo $images->get_yeux_creation($pdo);
+                }
+                if (isset($_GET["selected3"])){
+                    echo $images->get_nez_creation($pdo);
+                }
+                if (isset($_GET["selected4"])){
+                    echo $images->get_bouche_buste_creation($pdo);
+                } ?>
 
                 </div>
 
@@ -98,32 +107,19 @@ require_once "Model/pdo.php";
                       <div id="contenu">
 
                         <div class="item">
-                          <?php 
-                          if (isset($_GET["selected"])){
-                            echo $images->prez_front_creation($pdo); 
-                          } ?>
+                          <?php echo $images->prez_front_creation($pdo); ?>
                         </div>
 
                         <div class="item">
-                          <?php 
-                          if (isset($_GET["selected"])){
-                            echo $images->prez_yeux_creation($pdo);
-                          } ?>
+                          <?php echo $images->prez_yeux_creation($pdo); ?>
                         </div>
 
                         <div class="item">
-                          <?php 
-                          if (isset($_GET["selected"])){
-                            echo $images->prez_nez_creation($pdo);
-                          } ?>
+                          <?php echo $images->prez_nez_creation($pdo); ?>
                         </div>
 
                         <div class="item">
-                          <?php 
-                          if (isset($_GET["selected"])){
-                            echo $images->prez_bouche_buste_creation($pdo); 
-                            }
-                          ?>
+                          <?php echo $images->prez_bouche_buste_creation($pdo); ?>
                         </div>
 
                         <div class="item">
@@ -141,13 +137,13 @@ require_once "Model/pdo.php";
                         </div>
 
                       </div>
- 
+
 
                 </div>
 
               </div>
 
-             
+
 
               <script src="http://code.jquery.com/jquery-latest.js"></script>
 
