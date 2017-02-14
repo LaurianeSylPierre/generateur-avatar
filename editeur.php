@@ -23,7 +23,8 @@ require_once "Model/pdo.php";
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
           <script src="bootstrap/bootstrap.min.js"></script>
           <script src="jquery-3.1.1.min.js"></script>
-
+		  <script src="html2canvas.js"></script>
+		<script src="jquery.plugin.html2canvas.js"></script>
 
   	</head>
 
@@ -124,8 +125,8 @@ require_once "Model/pdo.php";
 
                         <div class="item">
 
-                        <input id="pseudo" type="text" placeholder="Pseudo"><br>
-                        <input id="boutonsave" type="Submit" value="Sauvegarder"><br>
+                        <input name="pseudo" id="pseudo" type="text" placeholder="Pseudo"><br>
+                        <a id="boutonsave">Sauvegarder</a><br>
 
                           <!--Facebook-->
                           <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
@@ -171,7 +172,29 @@ require_once "Model/pdo.php";
                       setDisplay();
                     });
                   </script>
+				  <script>
+					$('#boutonsave').click(function() {
+						console.log("coucou");
 
+						var capture = {};
+						var target = $('.apercu');
+						var pseudo = $('#pseudo').val();
+						html2canvas(target, {
+							onrendered: function(canvas) {
+								capture.img = canvas.toDataURL( "image/png" );
+								$.ajax({
+									url: "ajax.php",
+									data: "image="+capture.img+"&pseudo="+pseudo,
+									type: 'post',
+									success: function( result ) {
+										console.log( result );
+									}
+								});
+							}
+						});
+					});
+		</script>
+					
         </section>
 
        <script src="http://code.jquery.com/jquery-latest.js"></script>
