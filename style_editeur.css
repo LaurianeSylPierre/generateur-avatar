@@ -2,20 +2,71 @@ header h1 {
 	text-align: center;
 	font-family: 'Gloria Hallelujah', cursive;
 	margin-top:1em;
-	margin-bottom:2em;
+	margin-bottom:1em;
+
 }
 
 .apercu {
 	background-color:red;
 	height:40em;
+	margin-top:2em;
+	-webkit-box-shadow: 6px 7px 13px 0px rgba(143,143,143,1);
+	-moz-box-shadow: 6px 7px 13px 0px rgba(143,143,143,1);
+	box-shadow: 6px 7px 13px 0px rgba(143,143,143,1);
 }
 
 .choix {
-	background-color:lightblue;
+	background-color:#1ca6e6;
+	overflow-y: auto;
 	height: 40em;
+	-webkit-box-shadow: 6px 7px 13px 0px rgba(143,143,143,1);
+	-moz-box-shadow: 6px 7px 13px 0px rgba(143,143,143,1);
+	box-shadow: 6px 7px 13px 0px rgba(143,143,143,1);
 }
 
-#apercuav {
-	width: 60%;
+#onglets {
+	display: none;
 }
+
+#onglets li {
+	display:inline;
+	list-style: none;
+	padding: 10px 5px 20px;
+	margin-right: 5px;
+	cursor: pointer;
+	z-index: 1;
+	background-color:#1ca6e6;
+	border-radius:0.5em;
+	font-family: 'Raleway', sans-serif;
+	color:white;
+	font-weight: bold;
+}
+
+#onglets .actif {
+	border-bottom: none;
+	font-weight: bold;
+	background-color:#4ac6ff;
+	z-index: 10;
+}
+
+#contenu {
+	clear: both;
+	position: relative;
+	margin: 0 20px;
+	padding: 10px;
+	z-index: 5;
+	top: -6px;
+	width: 500px;
+	overflow: hidden;
+}
+
+#item {
+	width: 10%;
+}
+
+img {
+	width: 80%;
+	margin-top:1em;
+}
+
 

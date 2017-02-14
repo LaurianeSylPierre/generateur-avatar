@@ -13,17 +13,17 @@
             $front_all = "SELECT front, id_image FROM Banque_images";
             foreach($this->db->query($front_all) as $row){
                 $id_front = $row['id_image'];?>
-			<div id="front"><img id='<?php print $id_front ?>' src="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['front']; ?>"><br></div>
+			<a name="<?php print $id_front ?>"><div id="front"><img id='<?php print $id_front ?>' src="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['front']; ?>"><br></div></a>
             <?php
             ; }
         }
 
         public function prez_yeux_creation(){
             $yeux_all = "SELECT yeux, id_image FROM Banque_images";
-            foreach($this->db->query($front_all) as $row){
+            foreach($this->db->query($yeux_all) as $row){
                 $id_yeux = $row['id_image'];
                 ?>
-                <div id='yeux'><img id='<?php print $id_yeux?>' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['yeux'];?>'><br></div>
+                <a name="<?php print $id_yeux ?>"><div id='yeux'><img id='<?php print $id_yeux?>' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['yeux'];?>'><br></div></a>
             <?php
             ; }
         }
@@ -33,7 +33,7 @@
             foreach($this->db->query($nez_all) as $row){
                 $id_nez = $row['id_image'];
                 ?>
-                <div id='nez'><img id='<?php print $id_nez?>' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['nez'];?>'><br></div>
+                <a name="<?php print $id_nez ?>"><div id='nez'><img id='<?php print $id_nez?>' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['nez'];?>'><br></div></a>
             <?php
             ; }
         }
@@ -42,7 +42,7 @@
             $bouche_buste_all = "SELECT bouche_buste, id_image FROM Banque_images";
             foreach($this->db->query($bouche_buste_all) as $row){
                 $id_bouche_buste = $row['id_image']; ?>
-                <div id='bouche_buste'><img id='<?php print $id_bouche_buste ?>' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['bouche_buste'];?>'><br></div>
+                <a name="<?php print $id_bouche_buste ?>"><div id='bouche_buste'><img id='<?php print $id_bouche_buste ?>' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['bouche_buste'];?>'><br></div></a>
             <?php
             ; }
         }
