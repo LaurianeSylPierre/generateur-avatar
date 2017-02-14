@@ -106,21 +106,21 @@ require_once "Model/pdo.php";
 
                         <div class="item">
                           <?php 
-                          if (isset($_GET["selected"])){
+                          if (isset($_GET["selected2"])){
                             echo $images->prez_yeux_creation($pdo);
                           } ?>
                         </div>
 
                         <div class="item">
                           <?php 
-                          if (isset($_GET["selected"])){
+                          if (isset($_GET["selected3"])){
                             echo $images->prez_nez_creation($pdo);
                           } ?>
                         </div>
 
                         <div class="item">
                           <?php 
-                          if (isset($_GET["selected"])){
+                          if (isset($_GET["selected4"])){
                             echo $images->prez_bouche_buste_creation($pdo); 
                             }
                           ?>
@@ -128,10 +128,13 @@ require_once "Model/pdo.php";
 
                         <div class="item">
 
+                        <input id="pseudo" type="text" placeholder="Pseudo"><br>
+                        <input id="boutonsave" type="Submit" value="Sauvegarder"><br>
+
                           <!--Facebook-->
                           <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
                               <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a>
-                          </div>
+                          </div><br><br>
                           <!--Twitter-->
                           <a class="twitter-share-button"
                             href="https://twitter.com/intent/tweet?text=Notre%20texte%20à%20nous"

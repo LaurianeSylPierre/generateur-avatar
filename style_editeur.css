@@ -73,6 +73,31 @@ img {
 	margin-top:1em;
 }
 
-#fb {
-	width: 300%;
+#pseudo {
+	border-radius:0.5em;
+	border:none;
+	display:block;
+	margin:auto;
+	margin-top:15em;
+}
+
+#boutonsave {
+	border-radius:0.4em;
+	background-color:red;
+	color:white;
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+	border:none;
+	display:block;
+	margin:auto;
+
+
+}
+
+.fb-share-button {
+	margin-left:16.8em;
+}
+
+.twitter-share-button {
+	margin-left:14.5em;
 }
