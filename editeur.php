@@ -23,8 +23,8 @@ require_once "Model/pdo.php";
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
           <script src="bootstrap/bootstrap.min.js"></script>
           <script src="jquery-3.1.1.min.js"></script>
-		  <script src="html2canvas.js"></script>
-		<script src="jquery.plugin.html2canvas.js"></script>
+		  <script src="Controller/html2canvas.js"></script>
+		<script src="Controller/jquery.plugin.html2canvas.js"></script>
 
   	</head>
 
