@@ -80,22 +80,12 @@ require_once "Model/pdo.php";
 
               <div class="col-xs-12 col-md-6">
 
-                <div class="choix"></div>
-                <!--Facebook-->
-                    <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
-                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a>
-                    </div>
-                <!--Twitter-->
-                    <a class="twitter-share-button"
-                      href="https://twitter.com/intent/tweet?text=Notre%20texte%20à%20nous"
-                      data-size="large">
-                    Tweet</a>
-                </div>
                       <ul id="onglets">
                         <li class="actif">Front</li>
                         <li>Yeux</li>
                         <li>Nez</li>
                         <li>Bouche</li>
+                        <li>Enregistrer</li>
                       </ul>
 
                 <div class="choix">
@@ -118,12 +108,26 @@ require_once "Model/pdo.php";
                           <?php echo $images->prez_bouche_buste_creation($pdo); ?>
                         </div>
 
+                        <div class="item">
+                         <!--Facebook-->
+                    <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
+                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a>
+                    </div>
+                <!--Twitter-->
+                    <a class="twitter-share-button"
+                      href="https://twitter.com/intent/tweet?text=Notre%20texte%20à%20nous"
+                      data-size="large">
+                    Tweet</a>
+                        </div>
+
                       </div>
  
 
                 </div>
 
               </div>
+
+             
 
               <script src="http://code.jquery.com/jquery-latest.js"></script>
 
