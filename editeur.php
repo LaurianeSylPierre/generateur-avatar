@@ -1,4 +1,4 @@
-<?php 
+<?php
 error_reporting(E_ALL & ~E_NOTICE);
 session_start();
 require_once "Model/pdo.php";
@@ -24,17 +24,26 @@ require_once "Model/pdo.php";
 
 
   	</head>
-  	
-    <body>
 
+    <body>
+        <div id="fb-root"></div>
+        <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
 
       <header>
 
         <h1>Nom du générateur</h1>
 
       </header>
- 
-        <section id="avatar"> 
+
+        <section id="avatar">
 
           <div class="container">
 
@@ -49,20 +58,17 @@ require_once "Model/pdo.php";
               <div class="col-xs-12 col-md-6">
 
                 <div class="choix"></div>
-
-              </div>
+                    <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
+                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a>
+                    </div>
+                    <a class="twitter-share-button"
+                      href="https://twitter.com/intent/tweet?text=Notre%20texte%20à%20nous"
+                      data-size="large">
+                    Tweet</a>
+                </div>
 
         </section>
 
     </body>
 
   </html>
-
-
-
-
-
-
-
-
-
