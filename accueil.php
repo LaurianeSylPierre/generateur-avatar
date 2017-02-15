@@ -17,7 +17,7 @@ require_once "Model/pdo.php";
           <meta name="description" content="Bootstrap" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
-          <link rel="stylesheet" type="text/css" href="style_editeur.css"/>
+          <link rel="stylesheet" type="text/css" href="style_accueil.css"/>
           <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
           <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -34,18 +34,38 @@ require_once "Model/pdo.php";
 
       </header>
 		  <section class="avatars">
-			  <div>
+		  <p class="sections">Les derniers avatars créés</p>
+			  <div id="recents" class="row">
+			  
 				<?php
-				$query = $pdo->query("SELECT pseudo FROM Avatars");
+				$query = $pdo->query("SELECT * FROM Avatars ORDER BY id_avatar DESC LIMIT 0,4");
+				$result = $query->fetchAll();                                       
+				foreach ($result as $row){
+					echo "<div id='affichage' class='col-xs-6 col-md-2'>";
+					print "<img class='imageavatar' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".$row['image']."'>";
+					print "<p id='nom'>".$row['pseudo']."</p>";		          
+					echo "</div>";
+
+				}
+				?>
+			  </div>
+			  <div class="row">
+			  <div class="col-md-offset-5 col-md-3">
+			  <a href="editeur.php">Générer votre avatar</a>
+			  </div>
+			  </div>
+			  <p class="sections">Avatars au hasard</p>
+			  <div id="aleatoire" class="row">
+			  
+				<?php
+				$query = $pdo->query("SELECT * FROM Avatars ORDER BY RAND() LIMIT 0,4");
 				$result = $query->fetchAll();                                       
 				foreach ($result as $row){
 					
-					echo "<div id='affichage'><br>";
-					echo "<div class='row'>";
-					echo "<div class='col-xs-6 col-md-4'>";
-					print "<img src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".$row['pseudo']."'>";
+					echo "<div id='affichage' class='col-xs-6 col-md-2'>";
+					print "<img class='imageavatar' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".$row['image']."'>";
 					print "<p id='nom'>".$row['pseudo']."</p>";		          
-					echo "</div></div></div>";
+					echo "</div>";
 
 				}
 				?>
