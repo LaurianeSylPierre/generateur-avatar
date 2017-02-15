@@ -42,8 +42,8 @@ require_once "Model/pdo.php";
 				$result = $query->fetchAll();                                       
 				foreach ($result as $row){
 					echo "<div id='affichage' class='col-xs-6 col-md-2'>";
-					print "<img class='imageavatar' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".$row['image']."'>";
-					print "<p id='nom'>".$row['pseudo']."</p>";		          
+					print "<img class='imageavatar' src='".$row['url_home']."".$row['image']."'>";
+					print "<p class='nom'>".$row['pseudo']."</p>";		          
 					echo "</div>";
 
 				}
@@ -64,7 +64,7 @@ require_once "Model/pdo.php";
 					
 					echo "<div id='affichage' class='col-xs-6 col-md-2'>";
 					print "<img class='imageavatar' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/".$row['image']."'>";
-					print "<p id='nom'>".$row['pseudo']."</p>";		          
+					print "<p class='nom'>".$row['pseudo']."</p>";		          
 					echo "</div>";
 
 				}

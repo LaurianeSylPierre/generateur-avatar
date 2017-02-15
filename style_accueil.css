@@ -7,6 +7,8 @@ header h1 {
 }
 p.sections {
 	font-family: 'Raleway';
+	font-weight: bold;
+	color: #4ac6ff;
 	text-transform: uppercase;
 	margin-left: 50px;
 }
@@ -30,6 +32,7 @@ a {
 	text-decoration:none;
 	font-family:'Raleway';
 	padding: 20px 20px 20px 20px;
+	border-radius:5px;
 	transition: 0.5s ease;
 	margin: 0 auto;
 	text-align:center;
@@ -48,5 +51,11 @@ a:hover {
 
 img.imageavatar {
 	width: 70%;
+}
+
+p.nom {
+	font-family: 'Raleway';
+	color: #4ac6ff;
+	margin-left:35px;
 }
 
