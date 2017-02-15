@@ -1,0 +1,4 @@
+# On suit les liens symboliques
+Options +FollowSymlinks
+# Réécriture de index.html vers index.php
+RewriteRule ^index\.html$ /index.php [L]
