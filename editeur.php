@@ -73,7 +73,7 @@ require_once "Model/pdo.php";
 
               <div class="col-xs-12 col-md-6">
 
-                <div class="apercu">
+                <div id="apercu" class="apercu">
 
                 <?php
                 if (isset($_GET["selected"])){
@@ -174,17 +174,20 @@ require_once "Model/pdo.php";
                   </script>
 				  <script>
 					$('#boutonsave').click(function() {
-						console.log("coucou");
 
 						var capture = {};
-						var target = $('.apercu');
+						var target = $('#apercu');
 						var pseudo = $('#pseudo').val();
 						html2canvas(target, {
 							onrendered: function(canvas) {
 								capture.img = canvas.toDataURL( "image/png" );
+								capture.data = { 
+									'image' : capture.img, 
+									'pseudo' : pseudo 
+								};
 								$.ajax({
 									url: "ajax.php",
-									data: "image="+capture.img+"&pseudo="+pseudo,
+									data: capture.data,
 									type: 'post',
 									success: function( result ) {
 										console.log( result );
