@@ -12,8 +12,12 @@
         public function prez_front_creation(){
             $front_all = "SELECT front, id_image FROM Banque_images";
             foreach($this->db->query($front_all) as $row){
-                $id_front = $row['id_image'];?>
-			<a href="editeur.php?selected=<?php print $id_front ?>&selected2=<?php print $id_yeux ?>&selected3=<?php print $id_nez ?>&selected4=<?php print $id_bouche_buste ?>" class="selecteur" name="<?php print $id_front ?>"><div id="front"><img id='<?php print $id_front ?>' class="selecteur"  src="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['front']; ?>"><br></div></a>
+                $id_front = $row['id_image'];
+                $_SESSION['front'] = $id_front;
+                $_SESSION['yeux'] = $_GET['selected2'];
+                $_SESSION['nez'] = $_GET['selected3'];
+                $_SESSION['bouche_buste'] = $_GET['selected4'];?>
+			<a href="editeur.php?selected=<?php print $_SESSION['front'] ?>&selected2=<?php print $_SESSION['yeux'] ?>&selected3=<?php print $_SESSION['nez'] ?>&selected4=<?php print $_SESSION['bouche_buste'] ?>" class="selecteur" name="<?php print $id_front ?>"><div id="front"><img id='<?php print $id_front ?>' class="selecteur"  src="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['front']; ?>"><br></div></a>
             <?php
             ; }
         }
@@ -22,8 +26,12 @@
             $yeux_all = "SELECT yeux, id_image FROM Banque_images";
             foreach($this->db->query($yeux_all) as $row){
                 $id_yeux = $row['id_image'];
+                $_SESSION['front'] = $_GET['selected'];
+                $_SESSION['yeux'] = $id_yeux;
+                $_SESSION['nez'] = $_GET['selected3'];
+                $_SESSION['bouche_buste'] = $_GET['selected4'];
                 ?>
-                <a href="editeur.php?selected=<?php print $id_front ?>&selected2=<?php print $id_yeux ?>&selected3=<?php print $id_nez ?>&selected4=<?php print $id_bouche_buste ?>" class="selecteur" name="<?php print $id_yeux ?>"><div id='yeux'><img id='<?php print $id_yeux?>' class="selecteur"  src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['yeux'];?>'><br></div></a>
+                <a href="editeur.php?selected=<?php print $_SESSION['front'] ?>&selected2=<?php print $_SESSION['yeux'] ?>&selected3=<?php print $_SESSION['nez'] ?>&selected4=<?php print $_SESSION['bouche_buste'] ?>" class="selecteur" name="<?php print $id_front ?>"><div id="front"><img id='<?php print $id_front ?>' class="selecteur"  src="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['front']; ?>"><br></div></a>
             <?php
             ; }
         }
@@ -32,8 +40,12 @@
             $nez_all = "SELECT nez, id_image FROM Banque_images";
             foreach($this->db->query($nez_all) as $row){
                 $id_nez = $row['id_image'];
+                $_SESSION['front'] = $_GET['selected'];
+                $_SESSION['yeux'] = $_GET['selected2'];
+                $_SESSION['nez'] = $id_nez;
+                $_SESSION['bouche_buste'] = $_GET['selected4'];
                 ?>
-                <a href="editeur.php?selected=<?php print $id_front ?>&selected2=<?php print $id_yeux ?>&selected3=<?php print $id_nez ?>&selected4=<?php print $id_bouche_buste ?>" class="selecteur" name="<?php print $id_nez ?>"><div id='nez'><img id='<?php print $id_nez?>' class="selecteur"  src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['nez'];?>'><br></div></a>
+                <a href="editeur.php?selected=<?php print $_SESSION['front'] ?>&selected2=<?php print $_SESSION['yeux'] ?>&selected3=<?php print $_SESSION['nez'] ?>&selected4=<?php print $_SESSION['bouche_buste'] ?>" class="selecteur" name="<?php print $id_front ?>"><div id="front"><img id='<?php print $id_front ?>' class="selecteur"  src="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['front']; ?>"><br></div></a>
             <?php
             ; }
         }
@@ -41,8 +53,13 @@
         public function prez_bouche_buste_creation(){
             $bouche_buste_all = "SELECT bouche_buste, id_image FROM Banque_images";
             foreach($this->db->query($bouche_buste_all) as $row){
-                $id_bouche_buste = $row['id_image']; ?>
-                <a href="editeur.php?selected=<?php print $id_front ?>&selected2=<?php print $id_yeux ?>&selected3=<?php print $id_nez ?>&selected4=<?php print $id_bouche_buste ?>" name="<?php print $id_bouche_buste ?>"><div id='bouche_buste'><img class="selecteur"  id='<?php print $id_bouche_buste ?>' src='http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['bouche_buste'];?>'><br></div></a>
+                $id_bouche_buste = $row['id_image'];
+                $_SESSION['front'] = $_GET['selected'];
+                $_SESSION['yeux'] = $_GET['selected2'];
+                $_SESSION['nez'] = $_GET['selected3'];
+                $_SESSION['bouche_buste'] = $id_bouche_buste;
+                ?>
+                <a href="editeur.php?selected=<?php print $_SESSION['front'] ?>&selected2=<?php print $_SESSION['yeux'] ?>&selected3=<?php print $_SESSION['nez'] ?>&selected4=<?php print $_SESSION['bouche_buste'] ?>" class="selecteur" name="<?php print $id_front ?>"><div id="front"><img id='<?php print $id_front ?>' class="selecteur"  src="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/<?php print $row['front']; ?>"><br></div></a>
             <?php
             ; }
         }

@@ -87,7 +87,13 @@ require_once "Model/pdo.php";
                 }
                 if (isset($_GET["selected4"])){
                     echo $images->get_bouche_buste_creation($pdo);
-                } ?>
+                }
+                else{
+                    echo $images->get_front_creation($pdo);
+                    echo $images->get_yeux_creation($pdo);
+                    echo $images->get_nez_creation($pdo);
+                    echo $images->get_bouche_buste_creation($pdo);
+                }?>
 
                 </div>
 
@@ -194,7 +200,7 @@ require_once "Model/pdo.php";
 						});
 					});
 		</script>
-					
+
         </section>
 
        <script src="http://code.jquery.com/jquery-latest.js"></script>
