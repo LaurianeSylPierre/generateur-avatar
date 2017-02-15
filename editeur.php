@@ -131,6 +131,7 @@ require_once "Model/pdo.php";
 
                         <div class="item">
 
+                        <input type="hidden" name="url" value="<?php echo $base_url ?>">
                         <input name="pseudo" id="pseudo" type="text" placeholder="Pseudo"><br>
                         <a id="boutonsave">Sauvegarder</a><br>
 
@@ -187,9 +188,9 @@ require_once "Model/pdo.php";
 						html2canvas(target, {
 							onrendered: function(canvas) {
 								capture.img = canvas.toDataURL( "image/png" );
-								capture.data = { 
-									'image' : capture.img, 
-									'pseudo' : pseudo 
+								capture.data = {
+									'image' : capture.img,
+									'pseudo' : pseudo
 								};
 								$.ajax({
 									url: "ajax.php",
