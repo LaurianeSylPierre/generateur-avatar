@@ -105,6 +105,10 @@ img{
 
 }
 
+.message {
+	font-family: 'Raleway', sans-serif;
+}
+
 #fb img, #twitter img{
 	width: 15%;
 	margin: 0 auto;

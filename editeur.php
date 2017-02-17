@@ -199,32 +199,43 @@ require_once "Model/pdo.php";
                   setDisplay();
                 });
 
-				$('#boutonsave').click(function() {
-					var capture = {};
-					var target = $('#apercu');
-					var pseudo = $('#pseudo').val();
-					html2canvas(target, {
-						onrendered: function(canvas) {
-							capture.img = canvas.toDataURL( "image/png" );
-							capture.data = {
-								'image' : capture.img,
-								'pseudo' : pseudo
-							};
-							$.ajax({
-								url: "ajax.php",
-								data: capture.data,
-								type: 'post',
-								success: function( result ) {
-									console.log( result );
-								}
-							});
-						}
+						var capture = {};
+						var target = $('#apercu');
+						var pseudo = $('#pseudo').val();
+						html2canvas(target, {
+							onrendered: function(canvas) {
+								capture.img = canvas.toDataURL( "image/png" );
+								capture.data = { 
+									'image' : capture.img, 
+									'pseudo' : pseudo 
+								};
+								$.ajax({
+									url: "ajax.php",
+									data: capture.data,
+									type: 'post',
+									success: function(result) {
+										if (result == "error") {
+											$('.message').html("Pseudo déjà créé. Veuillez en choisir un autre.");
+										}
+										else {	
+											$('.message').html("Avatar enregistré !");
+										}
+									}
+									
+								});
+							}
+						});
 					});
 				});
 	        </script>
 
         </section>
 
+       <script src="http://code.jquery.com/jquery-latest.js"></script>
+	<?php 
+	session_unset();
+	session_destroy();
+	?>
     </body>
 
   </html>
