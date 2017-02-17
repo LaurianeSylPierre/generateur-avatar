@@ -99,7 +99,7 @@ require_once "Model/pdo.php";
 
               </div>
 
-              <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-6">
 
                       <ul id="onglets">
                         <li class="actif">Front</li>
@@ -152,9 +152,15 @@ require_once "Model/pdo.php";
                       </div>
 
 
-                </div>
-
-            </div>
+				</div>
+			</div>	
+		</div>
+			<div class="bouton_retour row">
+				<div class="col-md-offset-5 col-md-2">
+					<a class="retour" href="accueil.php">Retour à l'accueil</a>
+				</div>
+			</div>
+      </div>
 
 
 
