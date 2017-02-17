@@ -133,7 +133,7 @@ require_once "Model/pdo.php";
 
                         <input name="pseudo" id="pseudo" type="text" placeholder="Pseudo"><br>
                         <a id="boutonsave">Sauvegarder</a><br>
-
+						<p class="message"><?php echo $_SESSION['message']?></p>
                           <!--Facebook-->
                           <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
                               <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a>
@@ -195,9 +195,15 @@ require_once "Model/pdo.php";
 									url: "ajax.php",
 									data: capture.data,
 									type: 'post',
-									success: function( result ) {
-										console.log( result );
+									success: function(result) {
+										if (result == "error") {
+											$('.message').html("Pseudo déjà créé. Veuillez en choisir un autre.");
+										}
+										else {	
+											$('.message').html("Avatar enregistré !");
+										}
 									}
+									
 								});
 							}
 						});
@@ -207,7 +213,10 @@ require_once "Model/pdo.php";
         </section>
 
        <script src="http://code.jquery.com/jquery-latest.js"></script>
-
+	<?php 
+	session_unset();
+	session_destroy();
+	?>
     </body>
 
   </html>
