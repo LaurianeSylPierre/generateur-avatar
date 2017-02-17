@@ -105,10 +105,7 @@ img{
 
 }
 
-.fb-share-button {
-	margin-left:16.8em;
-}
-
-.twitter-share-button {
-	margin-left:14.5em;
+#fb img, #twitter img{
+	width: 15%;
+	margin: 0 auto;
 }

@@ -32,28 +32,28 @@ require_once "Model/pdo.php";
         <div id="fb-root"></div>
         <script>
         //Widget facebook
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        // (function(d, s, id) {
+        //     var js, fjs = d.getElementsByTagName(s)[0];
+        //     if (d.getElementById(id)) return;
+        //     js = d.createElement(s); js.id = id;
+        //     js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
+        //     fjs.parentNode.insertBefore(js, fjs);
+        // }(document, 'script', 'facebook-jssdk'));
 
         //widget twitter
-        window.twttr = (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-
-            t._e = [];
-            t.ready = function(f) {
-                t._e.push(f);
-            };
+        // window.twttr = (function(d, s, id) {
+        //     var js, fjs = d.getElementsByTagName(s)[0],
+        //         t = window.twttr || {};
+        //     if (d.getElementById(id)) return t;
+        //     js = d.createElement(s);
+        //     js.id = id;
+        //     js.src = "https://platform.twitter.com/widgets.js";
+        //     fjs.parentNode.insertBefore(js, fjs);
+        //
+        //     t._e = [];
+        //     t.ready = function(f) {
+        //         t._e.push(f);
+        //     };
 
             return t;
         }(document, "script", "twitter-wjs"));
@@ -131,18 +131,21 @@ require_once "Model/pdo.php";
 
                         <div class="item">
 
-                        <input name="pseudo" id="pseudo" type="text" placeholder="Pseudo"><br>
-                        <a id="boutonsave">Sauvegarder</a><br>
+                            <input name="pseudo" id="pseudo" type="text" placeholder="Pseudo"><br>
+                            <a id="boutonsave">Sauvegarder</a><br>
 
-                          <!--Facebook-->
-                          <div class="fb-share-button" data-href="http://eddyr.marmier.codeur.online/generateur-avatar/Views/Images/" data-layout="icon" data-mobile-iframe="true">
-                              <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a>
-                          </div><br><br>
-                          <!--Twitter-->
-                          <a class="twitter-share-button"
-                            href="https://twitter.com/intent/tweet?text=Notre%20texte%20à%20nous"
-                            data-size="large">
-                          Tweet</a>
+                            <div id="partage">
+                                <div class="fb-share-button" data-layout="button" data-mobile-iframe="false">
+                                    <a id="fb" class="fb-xfbml-parse-ignore" target="_blank" href="">
+                                        <img src="<?php echo $base_url ?>1487344286_facebook.svg" alt="">
+                                    </a>
+                                </div>
+                                <br>
+                                <br>
+                                <a id="twitter" class="twitter-share-button" href="" data-size="large">
+                                    <img src="<?php echo $base_url ?>1487344412_twitter.svg" alt="">
+                                </a>
+                            </div>
 
                         </div>
 
@@ -151,62 +154,76 @@ require_once "Model/pdo.php";
 
                 </div>
 
-              </div>
+            </div>
 
 
 
-              <script src="http://code.jquery.com/jquery-latest.js"></script>
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-                  <script>
-                    $(function() {
-                      $('#onglets').css('display', 'block');
-                      $('#onglets').click(function(event) {
-                        var actuel = event.target;
-                        if (!/li/i.test(actuel.nodeName) || actuel.className.indexOf('actif') > -1) {
-                          return;
-                        }
-                        $(actuel).addClass('actif').siblings().removeClass('actif');
-                        setDisplay();
-                      });
-                      function setDisplay() {
-                        var modeAffichage;
-                        $('#onglets li').each(function(rang) {
-                          modeAffichage = $(this).hasClass('actif') ? '' : 'none';
-                          $('.item').eq(rang).css('display', modeAffichage);
-                        });
-                      }
-                      setDisplay();
+            <script>
+
+            $('#boutonsave').click(function() {
+                var pathname = "https://www.facebook.com/sharer/sharer.php?u=<?php echo $base_url ?>";
+                var pseudo = $("input[name='pseudo']").val();
+                var suite = ".png&display=popup&ref=plugin&src=share_button";
+                var result = pathname + pseudo + suite;
+                $('#fb').attr('href', result);
+            });
+
+            $('#boutonsave').click(function() {
+                var pathname = "https://twitter.com/intent/tweet?text=Notre%20texte%20à%20nous%20avec%20notre%20image%20";
+                var lien = "<?php echo $base_url ?>";
+                var pseudo = $("input[name='pseudo']").val();
+                var suite = ".png";
+                var result = pathname + lien + pseudo + suite;
+                $('#twitter').attr('href', result);
+            });
+
+                $(function() {
+                  $('#onglets').css('display', 'block');
+                  $('#onglets').click(function(event) {
+                    var actuel = event.target;
+                    if (!/li/i.test(actuel.nodeName) || actuel.className.indexOf('actif') > -1) {
+                      return;
+                    }
+                    $(actuel).addClass('actif').siblings().removeClass('actif');
+                    setDisplay();
+                  });
+                  function setDisplay() {
+                    var modeAffichage;
+                    $('#onglets li').each(function(rang) {
+                      modeAffichage = $(this).hasClass('actif') ? '' : 'none';
+                      $('.item').eq(rang).css('display', modeAffichage);
                     });
-                  </script>
-				  <script>
-					$('#boutonsave').click(function() {
+                  }
+                  setDisplay();
+                });
 
-						var capture = {};
-						var target = $('#apercu');
-						var pseudo = $('#pseudo').val();
-						html2canvas(target, {
-							onrendered: function(canvas) {
-								capture.img = canvas.toDataURL( "image/png" );
-								capture.data = { 
-									'image' : capture.img, 
-									'pseudo' : pseudo 
-								};
-								$.ajax({
-									url: "ajax.php",
-									data: capture.data,
-									type: 'post',
-									success: function( result ) {
-										console.log( result );
-									}
-								});
-							}
-						});
+				$('#boutonsave').click(function() {
+					var capture = {};
+					var target = $('#apercu');
+					var pseudo = $('#pseudo').val();
+					html2canvas(target, {
+						onrendered: function(canvas) {
+							capture.img = canvas.toDataURL( "image/png" );
+							capture.data = {
+								'image' : capture.img,
+								'pseudo' : pseudo
+							};
+							$.ajax({
+								url: "ajax.php",
+								data: capture.data,
+								type: 'post',
+								success: function( result ) {
+									console.log( result );
+								}
+							});
+						}
 					});
-		</script>
+				});
+	        </script>
 
         </section>
-
-       <script src="http://code.jquery.com/jquery-latest.js"></script>
 
     </body>
 
