@@ -109,6 +109,33 @@ img{
 	font-family: 'Raleway', sans-serif;
 }
 
+div.bouton_retour {
+	margin-top:50px;
+}
+
+a.retour {
+	background-color: red;
+	color:white;
+	text-decoration:none;
+	font-family:'Raleway';
+	padding: 20px 20px 20px 20px;
+	border-radius:5px;
+	transition: 0.5s ease;
+	margin: 0 auto;
+	text-align:center;
+}
+
+a.retour:hover {
+	background-color:#ea5f4d;
+	color:white;
+	text-decoration:none;
+	font-family:'Raleway';
+	transition: 0.5s ease;
+	padding: 20px 20px 20px 20px;
+	margin: 0 auto;
+	text-align:center;
+}
+
 #fb img, #twitter img{
 	width: 15%;
 	margin: 0 auto;
